@@ -1,18 +1,36 @@
+// Gradle 플러그인 추가
 plugins {
-    id 'org.springframework.boot' version '2.7.10'
+// Spring Boot 플러그인 추가, Spring Boot 애플리케이션을 빌드하기 위해 필요한 여러 태스크와 설정을 제공합니다.
+    id 'org.springframework.boot' version '3.0.5'
+// Spring 프레임워크의 의존성 관리 기능을 제공하는 플러그인입니다.
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+// Java 언어를 빌드하기 위해 필요한 플러그인입니다.
     id 'java'
 }
 
-group = 'com.studyConnect'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+// 프로젝트 메타데이터 설정
+group = 'com.studyConnect' // 프로젝트 그룹 설정
+version = '0.0.1-SNAPSHOT' // 프로젝트 버전 설정
+sourceCompatibility = '17' // 소스 코드의 JDK 호환성 버전 설정
 
+// 라이브러리 의존성 관리
 repositories {
-    mavenCentral()
+    mavenCentral() // Maven 중앙 저장소에서 의존 라이브러리 다운로드
 }
+
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot 웹 애플리케이션을 개발하기 위한 스타터 의존성 추가
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // Spring Boot 테스트를 위한 스타터 의존성 추가
+
+    //H2 의존성 추가
+    implementation 'com.h2database:h2'
+    //lombok 의존성 추가
+    implementation 'org.projectlombok:lombok'
+    // Swagger 의존성 추가
 }
+
+
+// 인코딩 설정
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
