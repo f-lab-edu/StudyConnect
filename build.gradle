@@ -20,16 +20,28 @@ repositories {
 
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot 웹 애플리케이션을 개발하기 위한 스타터 의존성 추가
-    testImplementation 'org.springframework.boot:spring-boot-starter-test' // Spring Boot 테스트를 위한 스타터 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-web'       // Spring Boot 웹 애플리케이션을 개발하기 위한 스타터 의존성 추가
+    implementation 'org.springframework.boot:spring-boot-starter-validation'//spring validation 의존성 추가
 
+
+    //마이바티스 의존성 추가
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    
     //H2 의존성 추가
     implementation 'com.h2database:h2'
     //lombok 의존성 추가
     implementation 'org.projectlombok:lombok'
-    // Swagger 의존성 추가
-}
 
+    // Swagger 의존성 추가 https://springdoc.org/
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+    //추가적 설정 필요 => https://springdoc.org/v2/
+
+    // mybatis 의존성 추가
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+
+    // Spring Boot 테스트를 위한 스타터 의존성 추가
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
 
 // 인코딩 설정
 compileJava.options.encoding = 'UTF-8'
