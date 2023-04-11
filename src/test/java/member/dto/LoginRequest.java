@@ -1,4 +1,6 @@
-package com.studyconnect.member.dto;
+package member.dto;
+
+import org.apache.ibatis.type.Alias;
 
 import lombok.Getter;
 
@@ -6,7 +8,8 @@ import lombok.Getter;
  * The type LoginRequest.
  */
 @Getter
+@Alias("LoginRequest")
 public class LoginRequest {
-	private String memberEmail;
+	private String email;
 	private String password;
 }
