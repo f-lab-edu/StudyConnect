@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '3.0.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.studyConnect'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.projectlombok:lombok'
+
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+
+    implementation 'mysql:mysql-connector-java:8.0.32'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// 인코딩 설정
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
