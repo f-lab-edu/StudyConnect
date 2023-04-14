@@ -1,0 +1,59 @@
+name: gradle CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+# 워크플로우 트리거를 설정합니다. 'main' 브랜치에 푸시되거나 풀 리퀘스트가 생성될 때마다 실행됩니다.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # 작업이 실행될 운영 체제를 설정합니다. 여기서는 최신 우분투 버전을 사용합니다.
+
+    steps:
+      - uses: actions/checkout@v3
+      # 레포지토리의 소스 코드를 체크아웃하는 작업을 설정합니다.
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      # Gradle 의존성을 캐시하는 작업을 설정합니다. 이렇게 하면 빌드 시간이 단축됩니다.
+
+      - name: Build with Gradle
+        run: ./gradlew build
+      # Gradle을 사용하여 프로젝트를 빌드하는 작업을 설정합니다.
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: build/libs
+
+      - name: Run tests with Gradle
+        run: ./gradlew test --continue --no-daemon --console=plain --info
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v1.0.8
+        with:
+          path: build/reports/tests/test
+
+
+# 정적 코드 분석 , 코드 스타일 검사
+
+# 코드 커버리지 측정
+# 배포 자동화
+
