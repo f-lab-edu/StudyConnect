@@ -7,3 +7,14 @@
 # These are Windows script files and should use crlf
 *.bat           text eol=crlf
 
+#새 줄 문자를 LF로 설정 윈도우 문제로 인해
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+
+# exception for visual studio project configuration
+*.sln text eol=crlf
+*.vs text eol=crlf
+*.csproj eol=crlf
+*.props eol=crlf
+*.filters eol=crlf
