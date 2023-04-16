@@ -1,4 +1,5 @@
-name: gradle CI
+name: Code Coverage
+# 워크플로우 이름을 설정합니다. 여기서는 'Code Coverage'로 설정했습니다.
 
 on:
   push:
@@ -10,7 +11,7 @@ on:
 # 워크플로우 트리거를 설정합니다. 'main' 브랜치에 푸시되거나 풀 리퀘스트가 생성될 때마다 실행됩니다.
 
 jobs:
-  build:
+  coverage:
     runs-on: ubuntu-latest
     # 작업이 실행될 운영 체제를 설정합니다. 여기서는 최신 우분투 버전을 사용합니다.
 
@@ -23,6 +24,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      # JDK 17을 설치하고 설정하는 작업을 설정합니다. 여기서는 Temurin 배포판을 사용합니다.
 
       - name: Cache Gradle dependencies
         uses: actions/cache@v3
@@ -33,27 +35,13 @@ jobs:
             ${{ runner.os }}-gradle-
       # Gradle 의존성을 캐시하는 작업을 설정합니다. 이렇게 하면 빌드 시간이 단축됩니다.
 
-      - name: Build with Gradle
-        run: ./gradlew build
-      # Gradle을 사용하여 프로젝트를 빌드하는 작업을 설정합니다.
+      - name: Run tests with JaCoCo
+        run: ./gradlew test jacocoTestReport
+      # Gradle과 JaCoCo 플러그인을 사용하여 테스트를 실행하고 코드 커버리지 보고서를 생성합니다.
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+      - name: Upload code coverage report
+        uses: actions/upload-artifact@v2
         with:
-          name: build-artifacts
-          path: build/libs
-
-      - name: Run tests with Gradle
-        run: ./gradlew test --continue --no-daemon --console=plain --info
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v1.0.8
-        with:
-          path: build/reports/tests/test
-
-
-
-
-# 코드 커버리지 측정
-# 배포 자동화
-
+          name: code-coverage-report
+          path: build/reports/jacoco/test/html
+      # 생성된 코드 커버리지 보고서를 GitHub Actions 아티팩트로 업로드합니다.

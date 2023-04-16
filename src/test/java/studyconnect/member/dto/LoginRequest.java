@@ -1,4 +1,4 @@
-package member.dto;
+package studyconnect.member.dto;
 
 import org.apache.ibatis.type.Alias;
 
