@@ -46,6 +46,6 @@ jobs:
         with:
           github_token: ${{ secrets.CHECKSTYLE_TOKEN }}
           reporter: github-pr-review
-          checkstyle_config_path: ./config/rule-config/naver-checkstyle-rules.xml
-          suppressions-file: ./config/rule-config/naver-checkstyle-suppressions.xml.xml
+          checkstyle_config: naver-checkstyle-rules.xml
+          suppressions-file: naver-checkstyle-suppressions.xml
           level: warning
