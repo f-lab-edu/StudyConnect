@@ -24,8 +24,22 @@ dependencies {
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
 // 인코딩 설정
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
+
+
+test {
+    useJUnitPlatform()
+    finalizedBy 'jacocoTestReport'
+}
+
+
+jacoco {
+    toolVersion = '0.8.7'
+}
