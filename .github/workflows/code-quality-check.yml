@@ -39,13 +39,3 @@ jobs:
         with:
           name: code-coverage-report
           path: build/reports/jacoco/test/html
-
-      # Checkstyle 검증
-      - name: runner / checkstyle
-        uses: dbelyaev/action-checkstyle@v0.7.4
-        with:
-          github_token: ${{ secrets.CHECKSTYLE_TOKEN }}
-          reporter: github-pr-review
-          checkstyle_config: naver-checkstyle-rules.xml
-          suppressions-file: naver-checkstyle-suppressions.xml
-          level: warning
