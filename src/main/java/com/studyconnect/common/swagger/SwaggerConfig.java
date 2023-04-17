@@ -16,5 +16,4 @@ public class SwaggerConfig {
 			.title("Study Connect API 명세서");
 		return new OpenAPI().info(info);
 	}
-
 }

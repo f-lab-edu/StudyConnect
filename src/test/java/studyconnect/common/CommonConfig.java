@@ -1,4 +1,4 @@
-package common;
+package studyconnect.common;
 
 public class CommonConfig {
 }
