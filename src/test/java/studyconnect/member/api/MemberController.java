@@ -1,4 +1,4 @@
-package member.api;
+package studyconnect.member.api;
 
 /**LoginRequest Controller
  * The type LoginRequest controller.

@@ -1,4 +1,4 @@
-package member.service;
+package studyconnect.member.service;
 
 /**LoginRequest Service
  * The type LoginRequest service.
