@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     # 작업이 실행될 운영 체제를 설정합니다. 여기서는 최신 우분투 버전을 사용합니다.
 
     steps:
