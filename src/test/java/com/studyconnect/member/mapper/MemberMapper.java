@@ -1,4 +1,4 @@
-package studyconnect.member.mapper;
+package com.studyconnect.member.mapper;
 
 /**Member Mapper
  * The type Member mapper.

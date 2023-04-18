@@ -1,10 +1,8 @@
-package studyconnect;
+package com.studyconnect;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import com.studyconnect.StudyConnectApplication;
 
 @SpringBootTest(classes = StudyConnectApplication.class)
 class StudyConnectApplicationTest {
