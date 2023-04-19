@@ -1,6 +1,9 @@
 package com.studyconnect.tag.service;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -22,8 +25,9 @@ class TagServiceTest {
 	}
 
 	@Test
+	@DisplayName("태그 목록 전체 조회")
 	void tagMapperTest() {
-		// getTags() 메소드가 호출될 때 captor로 전달된 인자를 캡처합니다.
-		tagMapper.getTags().stream().map(Tag::getTagName).forEach(System.out::println);
+		List<Tag> tags = tagService.getTags();
+		tags.forEach(System.out::println);
 	}
 }

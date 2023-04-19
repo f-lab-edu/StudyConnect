@@ -1,4 +1,4 @@
-package com.studyconnect.common.swagger;
+package com.studyconnect.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
