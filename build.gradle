@@ -13,6 +13,9 @@ repositories {
     mavenCentral()
 }
 
+
+
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -29,6 +32,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 }
 
+
+
+
 // 인코딩 설정
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
@@ -38,6 +44,9 @@ test {
     useJUnitPlatform()
     finalizedBy 'jacocoTestReport'
 }
+
+
+
 
 
 jacoco {
