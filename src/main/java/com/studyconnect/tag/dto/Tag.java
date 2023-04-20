@@ -8,4 +8,5 @@ import lombok.RequiredArgsConstructor;
 public class Tag {
 	private final String tagId;
 	private final String tagName;
+	private final String category;
 }

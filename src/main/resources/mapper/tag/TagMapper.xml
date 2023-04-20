@@ -9,4 +9,12 @@
         order by tag_id desc
     </select>
 
+    <select id="getTagsWithCategories" resultType="tag">
+
+        select tag_id, tag_name, category
+        from tag
+        where category in
+        <foreach collection="list" item="item" open="(" close=")" separator=",">#{item}</foreach>
+        order by tag_id desc
+    </select>
 </mapper>
